@@ -6,9 +6,10 @@ function Product(name, imgPath) {
   this.imgPath = imgPath;
   this.votes = 0;
   this.views = 0;
+  Product.call.push(this);
 }
 
-var toalClicks = 0;
+var totalClicks = 0;
 
 //Product array of images...
 var productArray = [
@@ -33,3 +34,45 @@ var productArray = [
   new Product('Water-Can', 'img/water-can.jpg'),
   new Product('Wine-Glass', 'img/wine-glass.jpg'),
 ];
+
+//Random image generator
+function randomImages() {
+  var randomIndexOne = Math.floor(Math.random * productArray.length);
+  productArray[randomIndexOne].views;
+  imgOne.src = productArray[randomIndexOne].imgPath;
+  imgOne.setAttribute('data-index', randomIndexOne);
+
+  var randomIndexTwo = Math.floor(Math.random() * productArray.length);
+  productArray[randomIndexTwo].views;
+  imgTwo.src = productArray[randomIndexTwo].imgPath;
+  imgTwo.setAttribute('data-index', randomIndexTwo);
+
+  var randomIndexThree = Math.floor(Math.random * productArray.length);
+  productArray[randomIndexThree].views;
+  imgThree.src = productArray[randomIndexThree].imgPath;
+  imgThree.setAttribute('data-index', randomIndexThree);
+}
+
+var imgOne = document.getElementById('imgOne');
+imgOne.addEventListener('click', handleClick);
+
+var imgTwo = document.getElementById('imgTwo');
+imgTwo.addEventListener('click', handleClick);
+
+var imgThree = document.getElementById('imgThree');
+imgThree.addEventListener('click', handleClick);
+
+
+function handleClick(event) {
+  totalClicks++;
+  if(totalClicks >= 25) {
+    displayResults();
+  } else {
+    var index event.target.getAttribute('data-index');
+    productArray[index].votes++;
+  }
+}
+
+function calculateViewsToVotes() {
+  return votes/views;
+}

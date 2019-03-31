@@ -1,12 +1,12 @@
 header {
-  background-color: chocolate;
+  background-color: red;
+  height: 30vh;
 }
 footer {
-  background-color: antiquewhite
-}
-aside {
-  background-color: red;
+  background-color: blue;
+  height: 20vh;
 }
 main {
-  background-color: orange;
+  background-color: whitesmoke;
+  height: 130vh;
 }
